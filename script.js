@@ -6,11 +6,33 @@ var advideo = document.getElementById("advideo");
 var body = document.getElementById("body");
 
 watchad.addEventListener('click', function() {
-  var ad = document.getElementById('advideo');
-  ad.play();
-  body.style.display = 'none';
-  advideo.style.display = 'block';
+  // Generate a random number between 1 and 2
+  var randomNumber = Math.floor(Math.random() * 2) + 1;
+
+  // Get the ad elements
+  var ad1 = document.getElementById('advideo');
+  var ad2 = document.getElementById('advideo2');
+
+  // Hide both ads initially
+  ad1.style.display = 'none';
+  ad2.style.display = 'none';
+
+  // Get the body element
+  var body = document.body;
+
+  // Check the random number and play the corresponding ad
+  if (randomNumber === 1) {
+    ad1.play();
+    body.style.display = 'none';
+    ad1.style.display = 'block';
+  } else {
+    ad2.play();
+    body.style.display = 'none';
+    ad2.style.display = 'block';
+  }
 });
+
+
 
 advideo.addEventListener('ended', function() {
   close();
